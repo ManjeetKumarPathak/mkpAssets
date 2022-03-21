@@ -1,0 +1,14 @@
+name: Redeploy Site
+on:
+  push:
+    branches: ["main"]
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make Http Request
+        uses: fjogeleit/http-request-action@v1
+        with: 
+          url: ${{ secrets.REDEPLOY_URL }}
+          method: GET
+          
